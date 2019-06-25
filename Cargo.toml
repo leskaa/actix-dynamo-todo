@@ -1,0 +1,23 @@
+[package]
+name = "actix-crud-v04"
+version = "0.1.0"
+authors = ["Alex Leska <Alex.Leska@smartthings.com>"]
+edition = "2018"
+
+[dependencies]
+actix = "0.7"
+actix-rt = "0.2.2"
+actix-files = "0.1.0-beta.4"
+actix-web = "1.0.0-rc"
+rusoto_core = "0.39"
+rusoto_dynamodb = "0.39"
+uuid = { version = "0.7", features = ["serde", "v4"] }
+futures = "0.1"
+bytes = "0.4.12"
+serde = "1.0.91"
+serde_dynamodb = "0.3.0"
+serde_derive = "1.0.91"
+serde_json = "1.0.39"
+failure = "0.1.5"
+log = "0.4.6"
+dotenv = "0.14.1"
