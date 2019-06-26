@@ -225,13 +225,13 @@ fn main() -> io::Result<()> {
 
     println!("Server running on: {}", &env::var("BIND_ADDRESS").unwrap());
 
-    // match create_table(&DynamoDbClient::new(Region::Custom {
-    //     name: env::var("DATABASE_NAME").unwrap(),
-    //     endpoint: env::var("DATABASE_URL").unwrap(),
-    // })) {
-    //     Ok(_) => println!("Todos table created"),
-    //     Err(error) => panic!(error),
-    // }
+    match create_table(&DynamoDbClient::new(Region::Custom {
+        name: env::var("DATABASE_NAME").unwrap(),
+        endpoint: env::var("DATABASE_URL").unwrap(),
+    })) {
+        Ok(_) => println!("Todos table created"),
+        Err(error) => panic!(error),
+    }
 
     sys.run()
 }
