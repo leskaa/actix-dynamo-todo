@@ -7,7 +7,6 @@ use rusoto_dynamodb::KeySchemaElement;
 use rusoto_dynamodb::ProvisionedThroughput;
 use uuid::Uuid;
 
-
 use actix_web::http::StatusCode;
 use actix_web::{web, App, HttpResponse, HttpServer, Result};
 use rusoto_core::Region;
@@ -223,7 +222,10 @@ fn main() -> io::Result<()> {
     .bind(&env::var("BIND_ADDRESS").unwrap())?
     .start();
 
-    println!("Server running on: {}", &env::var("BIND_ADDRESS").unwrap());
+    println!(
+        "Server running on: {}",
+        &env::var("FRONTEND_ORIGIN").unwrap()
+    );
 
     match create_table(&DynamoDbClient::new(Region::Custom {
         name: env::var("DATABASE_NAME").unwrap(),
